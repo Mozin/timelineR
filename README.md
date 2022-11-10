@@ -288,3 +288,7 @@ To show for each value searched, what values in `actual_names` matched or not, t
 grep_vec = c("state" , "num")
 match_grep(grep_vec, names(test_data), use_values = T, return_names = T, echo = T)
 ```
+
+## Special Credits
+
+This package was developed by the data science team at Vimana Inc https://govimana.com/
