@@ -1,6 +1,6 @@
 Package: timelineR
 Title: Visualization for Time Series Data
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
  person("Mohsin", "Vindhani", email = "mohsinvindhani@gmail.com", role = c("aut", "cre")),
  person("Alex", "Joseph", email = "alexsanjoseph@gmail.com", role = c("aut")),
@@ -12,7 +12,7 @@ Description: Helps to visualize multi-variate time-series having numeric and fac
     You can use the package for visual analysis of data by plotting the data for each variable in the desired order and study
     interaction between a factor and a numeric variable by creating overlapping plots.
 Depends:
-   R (>= 3.3.0)
+   R (>= 4.2.3)
 Imports:
    rlang,
    dplyr,
@@ -21,11 +21,11 @@ Imports:
    futile.logger,
    ggplot2,
    gtable,
-   grid,
-   mtconnectR
+   grid
 Suggests:
    testthat,
    knitr,
+   markdown,
    rmarkdown
 License: AGPL-3
 Encoding: UTF-8

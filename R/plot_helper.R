@@ -2,7 +2,7 @@
 generate_state_plot_layer <- function(data_to_plot) {
   
   names(data_to_plot)[2] = "value"
-  data_to_plot_reduced = mtconnectR::clean_reduntant_rows(data_to_plot)
+  data_to_plot_reduced = clean_reduntant_rows(data_to_plot)
   data_to_plot_reduced = data_to_plot_reduced %>% rbind(data_to_plot[nrow(data_to_plot),]) %>% unique()
   start_values = data_to_plot_reduced[1:(nrow(data_to_plot_reduced) - 1), 1]
   end_values = data_to_plot_reduced[2:nrow(data_to_plot_reduced), 1]

@@ -292,3 +292,6 @@ match_grep(grep_vec, names(test_data), use_values = T, return_names = T, echo = 
 ## Special Credits
 
 This package was developed by the data science team at Vimana Inc https://govimana.com/
+
+This package also uses some functionalities from https://github.com/systeminsights/mtconnectR
+

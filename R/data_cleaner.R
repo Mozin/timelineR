@@ -112,3 +112,64 @@ sort_timeline_if_unsorted <- function(timeline_df, ts_col){
   }
   timeline_df
 }
+
+
+#' @title Sequence Order Vector.
+#' @description Create IDs for a vector. Successive elements if same, are given the same ID.
+#' @param data The data to generate ids for
+#' @seealso \code{\link{rle}}, \code{\link{clean_reduntant_rows}}
+#' @examples 
+#'  sequence_order_vector(c(4,4,4,5,5))
+#' @export
+sequence_order_vector <- function(data)
+{
+  lengths_seq <- rle(as.vector(data))$lengths
+  rep(seq_along(lengths_seq),lengths_seq)
+}
+
+#' @title Remove Vector Redundancy
+#' @description Replaces successive elements which are same, such that in result, no two adjacent values are the same.
+#' @param data vector to be cleaned
+#' @examples 
+#'   clean_reduntant_vector(c(4,4,4,5,5))
+#' @export
+clean_reduntant_vector <- function(data)
+{
+  rle(as.vector(data))$values
+}
+
+#' Removes Redundant Rows in a data frame assuming statefulness
+#'
+#' @param df Data.frame in timestamp, value1, value2,...
+#' @param clean_colname Name of the column to clean as basis
+#' @param echo Whether to return messages or not
+#'
+#' @export
+#' @examples
+#' test_interval =
+#'   data.frame(timestamp = as.POSIXct(c(0.5, 1, 1.008, 1.011), origin = "1970-01-01"),
+#'             x     = c("a", "b", "b", "b"),
+#'              y     = c("e", "e", "e", "f"))
+#' clean_reduntant_rows(test_interval, "x")
+clean_reduntant_rows = function(df, clean_colname = "value", echo = F) {
+  
+  df = data.frame(df)
+  if(nrow(df) == 0) return(df)
+  
+  clean_col_indices = which(names(df) %in% clean_colname)
+  if(length(clean_col_indices) == 0) return(df)
+  
+  pasted_vector = get_clean_pasted_vector(df, clean_col_indices)
+  
+  df[!duplicated(sequence_order_vector(pasted_vector)),, drop=FALSE]
+}
+
+
+get_clean_pasted_vector <- function(df, clean_col){
+  pasted_vector = do.call(paste, df[clean_col])
+  # Na is data unavailable in our stack, so cleaning it
+  #NA_pattern = paste(replicate(length(clean_col), "NA"), collapse = " ")
+  #pasted_vector = ifelse(grepl(NA_pattern, pasted_vector), NA,pasted_vector)
+  return(pasted_vector)
+}
+
