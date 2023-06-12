@@ -1,6 +1,4 @@
 
-[![codecov.io](https://codecov.io/github/alexsanjoseph/compareDF/coverage.svg?branch=master)](https://codecov.io/github/systeminsights/timelineR?branch=master)
-[![Travis-CI Build Status](https://api.travis-ci.org/systeminsights/timelineR.svg?branch=master)](https://travis-ci.org/systeminsights/timelineR)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/timelineR)](https://cran.r-project.org/package=timelineR)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/timelineR)](https://www.r-pkg.org/pkg/timelineR)
 ![CRAN Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/timelineR)
@@ -18,7 +16,7 @@ A data helper function `match_grep` is provided to extract names from large data
 
 The `plot_timeline` function in R helps visualize multi-variate 
 time-series having numeric and state variables. The data used for
-demonstration details the pollution levels in Delhi, which is downloaded from http://www.cpcb.gov.in/ .
+demonstration details the pollution levels in Delhi, which is downloaded from https://www.cpcb.gov.in/ .
 
 In this package, the `futile:logger` package is used for logging since it provides 
 a more granular control over the logging. This is useful to use the package in production
