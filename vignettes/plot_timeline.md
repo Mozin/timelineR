@@ -13,7 +13,7 @@ vignette: >
 
 The `plot_timeline` function in R helps visualize multi-variate 
 time-series having numeric and state variables. The data used for
-demonstration details the pollution levels in Delhi, which is downloaded from https://www.cpcb.gov.in/ .
+demonstration details the pollution levels in Delhi, which is downloaded from https://www.cpcb.nic.in/ .
 
 In this package, the `futile:logger` package is used for logging since it provides 
 a more granular control over the logging. This is useful to use the package in production
